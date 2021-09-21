@@ -4,4 +4,11 @@ const StatusCode = {
   NotContent: 204,
   BadRequest: 400,
 };
-module.exports = { StatusCode };
+
+const ACTIONS = {
+  created: "created",
+  deleted: "deleted",
+  updated: "updated",
+};
+
+module.exports = { StatusCode, ACTIONS };

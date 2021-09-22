@@ -2,7 +2,7 @@ const { marcasService } = require("../../services");
 const {
   HTTP: { StatusCode },
 } = require("../../enums");
-const { getResponse, successMessage } = require("../../utils/helpers");
+const { getResponse, successMessage, isEmpty } = require("../../utils/helpers");
 const { ACTIONS } = require("../../enums/http");
 
 const getAllMarcas = async (req, res) => {
@@ -29,6 +29,7 @@ const getMarcaById = async (req, res) => {
 const createMarca = async (req, res) => {
   const marca = req.body;
   try {
+    isEmpty(marca.ma_descripcion);
     const marcaCreated = await marcasService.createMarca(marca);
     res
       .status(StatusCode.Created)
@@ -50,6 +51,7 @@ const createMarca = async (req, res) => {
 const updateMarca = async (req, res) => {
   const marca = req.body;
   try {
+    isEmpty(marca.ma_descripcion);
     const marcaUpdated = await marcasService.updateMarca(marca);
     res
       .status(StatusCode.Ok)

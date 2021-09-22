@@ -12,7 +12,15 @@ const getResponse = (message, success = true, data = []) => {
   return { message, success, data };
 };
 
+const isEmpty = (string) => {
+  if (string.trim() === "") {
+    throw new Error("There are fields that cannot be Empty");
+  }
+  return true;
+};
+
 module.exports = {
   getResponse,
   successMessage,
+  isEmpty,
 };

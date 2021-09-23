@@ -87,9 +87,12 @@ const updateVehiculo = async ({
   }
 };
 
-const disableVehiculo = async ({ v_id }) => {
+const disableVehiculo = async ({ v_id, v_estado }) => {
   try {
-    const vehiculos = await execQuery(vehiculosQueries.disable, [v_id]);
+    const vehiculos = await execQuery(vehiculosQueries.disable, [
+      v_id,
+      v_estado,
+    ]);
     return { success: vehiculos.rowCount > 0, data: vehiculos.rows };
   } catch (error) {
     console.error("Error vehiculos Repository", error);

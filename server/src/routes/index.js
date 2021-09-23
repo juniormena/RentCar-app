@@ -5,6 +5,7 @@ const modelosRoutes = require("./modelosRoutes");
 const vehiculosRoutes = require("./vehiculosRoutes");
 const clientesRoutes = require("./clientesRoutes");
 const empleadosRoutes = require("./empleadosRoutes");
+const inspeccionesRoutes = require("./inspeccionRoutes");
 
 module.exports = {
   marcasRoutes,
@@ -14,4 +15,5 @@ module.exports = {
   vehiculosRoutes,
   clientesRoutes,
   empleadosRoutes,
+  inspeccionesRoutes,
 };

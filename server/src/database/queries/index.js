@@ -5,6 +5,7 @@ const modelosQueries = require("./modelos");
 const vehiculosQueries = require("./vehiculos");
 const clientesQueries = require("./clientes");
 const empleadosQueries = require("./empleados");
+const inspeccionQueries = require("./inspeccion");
 
 module.exports = {
   marcasQueries,
@@ -14,4 +15,5 @@ module.exports = {
   vehiculosQueries,
   clientesQueries,
   empleadosQueries,
+  inspeccionQueries,
 };

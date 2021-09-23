@@ -5,6 +5,7 @@ const modelosController = require("./modelos/modelosController");
 const vehiculosController = require("./vehiculos/vehiculosController");
 const clientesController = require("./clientes/clientesController");
 const empleadosController = require("./empleados/empleadosController");
+const inspeccionController = require("./inspecciones/inspeccionesController");
 
 module.exports = {
   marcasController,
@@ -14,4 +15,5 @@ module.exports = {
   vehiculosController,
   clientesController,
   empleadosController,
+  inspeccionController,
 };

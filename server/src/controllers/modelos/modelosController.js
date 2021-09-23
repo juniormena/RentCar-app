@@ -63,7 +63,7 @@ const createModelo = async (req, res) => {
 const updateModelo = async (req, res) => {
   const modelo = req.body;
   try {
-    isEmpty(modelo.ma_descripcion);
+    isEmpty(modelo.mo_descripcion);
     const modeloUpdated = await modelosService.updateModelo(modelo);
     res
       .status(StatusCode.Ok)

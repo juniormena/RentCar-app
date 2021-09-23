@@ -4,6 +4,7 @@ const tipoCombustibleController = require("./tipoCombustible/tipoCombustibleCont
 const modelosController = require("./modelos/modelosController");
 const vehiculosController = require("./vehiculos/vehiculosController");
 const clientesController = require("./clientes/clientesController");
+const empleadosController = require("./empleados/empleadosController");
 
 module.exports = {
   marcasController,
@@ -12,4 +13,5 @@ module.exports = {
   modelosController,
   vehiculosController,
   clientesController,
+  empleadosController,
 };

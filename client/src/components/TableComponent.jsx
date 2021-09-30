@@ -1,6 +1,7 @@
 import Table from "react-bootstrap/Table";
 import Card from "react-bootstrap/Card";
-import Modal from "react-bootstrap/Modal";
+import { Fragment } from "react";
+import ModalComponent from "./ModalComponent";
 
 function TableComponent({
   headers,
@@ -11,15 +12,16 @@ function TableComponent({
   handleClose,
   handleShow,
 }) {
-  console.log(children);
   return (
-    <>
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title className="text-uppercase">{title}</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>{modalChildren}</Modal.Body>
-      </Modal>
+    <Fragment>
+      <ModalComponent
+        show={show}
+        title={title}
+        handleShow={handleShow}
+        handleClose={handleClose}
+      >
+        {modalChildren}
+      </ModalComponent>
 
       <Card>
         <Card.Header className="text-uppercase fw-bold d-flex justify-content-between">
@@ -46,7 +48,7 @@ function TableComponent({
           </tbody>
         </Table>
       </Card>
-    </>
+    </Fragment>
   );
 }
 

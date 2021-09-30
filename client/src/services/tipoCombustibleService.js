@@ -5,24 +5,24 @@ import {
   normalAlert,
 } from "../lib/generalHelpers";
 
-const serviceTitle = "Marcas";
+const serviceTitle = "Tipo combustible";
 
-export const getMarcas = async () => {
-  let res = await fetch(`${baseURL}/marcas`);
+export const getTipoCombustible = async () => {
+  let res = await fetch(`${baseURL}/tipoCombustible`);
   if (res.ok) {
     return await res.json();
   }
 };
 
-export const createMarca = async (e, marca) => {
+export const createTipoCombustible = async (e, tipoCombustible) => {
   try {
     e.preventDefault();
     let options = {
       method: "POST",
-      body: JSON.stringify(marca),
+      body: JSON.stringify(tipoCombustible),
       ...defualtOptions,
     };
-    let res = await fetch(`${baseURL}/createMarca`, options);
+    let res = await fetch(`${baseURL}/createTipoCombustible`, options);
 
     if (res.ok) {
       const jsonResponse = await res.json();
@@ -39,15 +39,15 @@ export const createMarca = async (e, marca) => {
   }
 };
 
-export const updateMarca = async (e, marca) => {
+export const updateTipoCombustible = async (e, tipoCombustible) => {
   try {
     e.preventDefault();
     let options = {
       method: "PUT",
-      body: JSON.stringify(marca),
+      body: JSON.stringify(tipoCombustible),
       ...defualtOptions,
     };
-    let res = await fetch(`${baseURL}/updateMarca`, options);
+    let res = await fetch(`${baseURL}/updateTipoCombustible`, options);
 
     if (res.ok) {
       const jsonResponse = await res.json();
@@ -64,14 +64,14 @@ export const updateMarca = async (e, marca) => {
   }
 };
 
-export const disableMarca = async (marcaId) => {
+export const disableTipoCombustible = async (tipoCombustibleId) => {
   try {
     let options = {
       method: "PUT",
-      body: JSON.stringify(marcaId),
+      body: JSON.stringify(tipoCombustibleId),
       ...defualtOptions,
     };
-    let res = await fetch(`${baseURL}/disableMarca`, options);
+    let res = await fetch(`${baseURL}/disableTipoCombustible`, options);
 
     if (res.ok) {
       const jsonResponse = await res.json();

@@ -1,5 +1,12 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Home, Login, Marcas, TipoCombustible } from "./pages";
+import {
+  Home,
+  Login,
+  Marcas,
+  Modelos,
+  TipoCombustible,
+  TipoVehiculo,
+} from "./pages";
 import { NavbarComponent } from "./components";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Fragment } from "react";
@@ -19,6 +26,8 @@ function App() {
               path="/tipoCombustible"
               component={TipoCombustible}
             ></Route>
+            <Route exact path="/tipoVehiculo" component={TipoVehiculo}></Route>
+            <Route exact path="/modelos" component={Modelos}></Route>
           </div>
         </Fragment>
       </Switch>

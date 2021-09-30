@@ -12,7 +12,9 @@ function NavbarComponent() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/marcas">Marcas</Nav.Link>
+            <Nav.Link href="/modelos">Modelos</Nav.Link>
             <Nav.Link href="/tipoCombustible">Tipo Combustible</Nav.Link>
+            <Nav.Link href="/tipoVehiculo">Tipo Vehiculo</Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">

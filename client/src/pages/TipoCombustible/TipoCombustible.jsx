@@ -27,7 +27,7 @@ function TipoCombustile() {
   const pageTitle = "tipo Combustile";
 
   useEffect(() => {
-    getTipoCombustible().then((data) => setTipoCombustiles(data));
+    getTipoCombustible().then(({ data }) => setTipoCombustiles(data));
   }, []);
 
   function setOnUpdateMode({ tc_id, tc_descripcion }) {
@@ -57,13 +57,13 @@ function TipoCombustile() {
           type="text"
           className="form-control"
           id="tcDescripcion"
-          placeholder="name@example.com"
+          placeholder="tcDescripcion"
           value={tipoCombustible.tc_descripcion}
           onChange={(e) =>
             handleChangeInput(e, tipoCombustible, setTipoCombustible)
           }
         />
-        <label htmlFor="tcDescripcion">Nombre de la tipoCombustible</label>
+        <label htmlFor="tcDescripcion">Descripcion</label>
       </div>
       <div className="d-grid gap-2 mt-4">
         <Button variant="outline-success" size="lg" type="submit">
@@ -91,7 +91,7 @@ function TipoCombustile() {
           onClick={() =>
             confirmationAlert(
               pageTitle,
-              `Deseas eliminar la tipoCombustible ${tipoCombustible.tc_descripcion}`,
+              `Deseas eliminar el tipo combustible ${tipoCombustible.tc_descripcion}`,
               () => disableTipoCombustible({ tc_id: tipoCombustible.tc_id })
             )
           }
@@ -107,7 +107,7 @@ function TipoCombustile() {
       <TableComponent
         headers={tipoCombustibleHeaders}
         title={pageTitle}
-        children={tipoCombustiles?.data?.map((tipoCombustible) =>
+        children={tipoCombustiles?.map((tipoCombustible) =>
           tipoCombustileRow(tipoCombustible)
         )}
         modalChildren={tipoCombustileForm()}

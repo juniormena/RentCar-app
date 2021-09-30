@@ -25,7 +25,7 @@ function Marcas() {
   const pageTitle = "Marcas";
 
   useEffect(() => {
-    getMarcas().then((data) => setMarcas(data));
+    getMarcas().then(({ data }) => setMarcas(data));
   }, []);
 
   function setOnUpdateMode({ ma_id, ma_descripcion }) {
@@ -53,11 +53,11 @@ function Marcas() {
           type="text"
           className="form-control"
           id="marcaDescripcion"
-          placeholder="name@example.com"
+          placeholder="marcaDescripcion"
           value={marca.ma_descripcion}
           onChange={(e) => handleChangeInput(e, marca, setMarca)}
         />
-        <label htmlFor="marcaDescripcion">Nombre de la marca</label>
+        <label htmlFor="marcaDescripcion">Descripcion</label>
       </div>
       <div className="d-grid gap-2 mt-4">
         <Button variant="outline-success" size="lg" type="submit">
@@ -101,7 +101,7 @@ function Marcas() {
       <TableComponent
         headers={marcasHeaders}
         title={pageTitle}
-        children={marcas?.data?.map((marca) => marcasRow(marca))}
+        children={marcas?.map((marca) => marcasRow(marca))}
         modalChildren={marcasForm()}
         show={show}
         handleClose={closeModal}

@@ -16,7 +16,9 @@ export function normalAlert(icon, title, text) {
     title,
     text,
     timer: 5000,
-  }).then(() => window.location.reload());
+  }).then(() => {
+    if (icon === ALERT_ICONS.SUCCESS) window.location.reload();
+  });
 }
 
 export const ALERT_ICONS = {
@@ -42,8 +44,7 @@ export function confirmationAlert(titulo, mensaje, cb = null) {
   Swal.fire({
     title: `<h4>${titulo}</h4>`,
     text: `${mensaje}`,
-    icon: ALERT_ICONS.WARNING,
-    width: "450px",
+    icon: ALERT_ICONS.QUESTION,
     showCancelButton: true,
     confirmButtonText: "Aceptar",
     cancelButtonText: "Cancelar",

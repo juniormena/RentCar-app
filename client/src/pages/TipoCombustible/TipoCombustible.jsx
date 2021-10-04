@@ -81,13 +81,13 @@ function TipoCombustile() {
       <td>{formatDate(tipoCombustible.tc_modificado)}</td>
       <td>
         <button
-          className="btn btn-primary me-3 text-uppercase"
+          className="btn btn-outline-primary me-3 text-uppercase"
           onClick={() => setOnUpdateMode(tipoCombustible)}
         >
           editar
         </button>
         <button
-          className="btn btn-danger text-uppercase"
+          className="btn btn-outline-danger text-uppercase"
           onClick={() =>
             confirmationAlert(
               pageTitle,

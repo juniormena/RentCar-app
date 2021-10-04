@@ -11,19 +11,16 @@ function NavbarComponent() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/marcas">Marcas</Nav.Link>
-            <Nav.Link href="/modelos">Modelos</Nav.Link>
-            <Nav.Link href="/tipoCombustible">Tipo Combustible</Nav.Link>
-            <Nav.Link href="/tipoVehiculo">Tipo Vehiculo</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
+            <NavDropdown title="Marcas y Modelos">
+              <NavDropdown.Item href="/marcas">Marcas</NavDropdown.Item>
+              <NavDropdown.Item href="/modelos">Modelos</NavDropdown.Item>
+            </NavDropdown>
+            <NavDropdown title="Tipos">
+              <NavDropdown.Item href="/tipoCombustible">
+                Tipo Combustible
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
+              <NavDropdown.Item href="/tipoVehiculo">
+                Tipo Vehiculo
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>

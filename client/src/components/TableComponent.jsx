@@ -11,6 +11,7 @@ function TableComponent({
   show,
   handleClose,
   handleShow,
+  modalSize = "sm",
 }) {
   return (
     <Fragment>
@@ -19,6 +20,7 @@ function TableComponent({
         title={title}
         handleShow={handleShow}
         handleClose={handleClose}
+        size={modalSize}
       >
         {modalChildren}
       </ModalComponent>

@@ -6,6 +6,7 @@ import {
   Modelos,
   TipoCombustible,
   TipoVehiculo,
+  Vehiculos,
 } from "./pages";
 import { NavbarComponent } from "./components";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -28,6 +29,7 @@ function App() {
             ></Route>
             <Route exact path="/tipoVehiculo" component={TipoVehiculo}></Route>
             <Route exact path="/modelos" component={Modelos}></Route>
+            <Route exact path="/vehiculos" component={Vehiculos}></Route>
           </div>
         </Fragment>
       </Switch>

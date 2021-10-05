@@ -24,6 +24,7 @@ function NavbarComponent() {
               </NavDropdown.Item>
             </NavDropdown>
             <Nav.Link href="/vehiculos">Vehiculos</Nav.Link>
+            <Nav.Link href="/clientes">Clientes</Nav.Link>
           </Nav>
         </Navbar.Collapse>
         <Navbar.Collapse className="justify-content-end">

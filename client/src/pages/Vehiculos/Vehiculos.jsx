@@ -108,6 +108,7 @@ function Vehiculos() {
       <Container>
         <Row>
           <Col>
+            <label htmlFor="vehiculoDescripcion">Descripcion</label>
             <input
               required
               name="v_descripcion"
@@ -120,6 +121,7 @@ function Vehiculos() {
             />
           </Col>
           <Col>
+            <label>Marca</label>
             <select
               className="form-select mb-3"
               name="v_id_marca"
@@ -131,6 +133,7 @@ function Vehiculos() {
             </select>
           </Col>
           <Col>
+            <label>Modelo</label>
             <select
               className="form-select mb-3"
               name="v_id_modelo"
@@ -144,6 +147,7 @@ function Vehiculos() {
         </Row>
         <Row>
           <Col>
+            <label>Tipo Vehiculo</label>
             <select
               className="form-select mb-3"
               name="v_id_tipo_vehiculo"
@@ -155,6 +159,7 @@ function Vehiculos() {
             </select>
           </Col>
           <Col>
+            <label>Tipo combustible</label>
             <select
               className="form-select mb-3"
               name="v_id_tipo_combustible"
@@ -166,6 +171,7 @@ function Vehiculos() {
             </select>
           </Col>
           <Col>
+            <label>Placa</label>
             <input
               required
               name="v_place"
@@ -180,6 +186,7 @@ function Vehiculos() {
         </Row>
         <Row>
           <Col>
+            <label>Chasis</label>
             <input
               required
               name="v_chasis"
@@ -192,6 +199,7 @@ function Vehiculos() {
             />
           </Col>
           <Col>
+            <label>Motor</label>
             <input
               required
               name="v_motor"

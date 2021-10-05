@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {
+  Clientes,
   Home,
   Login,
   Marcas,
@@ -30,6 +31,7 @@ function App() {
             <Route exact path="/tipoVehiculo" component={TipoVehiculo}></Route>
             <Route exact path="/modelos" component={Modelos}></Route>
             <Route exact path="/vehiculos" component={Vehiculos}></Route>
+            <Route exact path="/clientes" component={Clientes}></Route>
           </div>
         </Fragment>
       </Switch>

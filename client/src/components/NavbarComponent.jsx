@@ -2,8 +2,10 @@ import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import { getCurrentUser, logOut } from "../services/authServices";
 
 function NavbarComponent() {
+  const currentUser = getCurrentUser();
   return (
     <Navbar bg="light" expand="lg">
       <Container>
@@ -29,8 +31,17 @@ function NavbarComponent() {
           </Nav>
         </Navbar.Collapse>
         <Navbar.Collapse className="justify-content-end">
+          <Navbar.Text className="me-3">
+            Has iniciado sesion como:{" "}
+            <a href="#login">{currentUser?.emp_nombre}</a>
+          </Navbar.Text>
           <Navbar.Text>
-            Signed in as: <a href="#login">Junior Mena</a>
+            <button
+              className="btn btn-outline-danger text-uppercase"
+              onClick={logOut}
+            >
+              Cerrar sesion
+            </button>
           </Navbar.Text>
         </Navbar.Collapse>
       </Container>

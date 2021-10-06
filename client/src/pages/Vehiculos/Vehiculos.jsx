@@ -28,8 +28,6 @@ const vehiculosHeaders = [
   { id: 7, name: "Motor" },
   { id: 8, name: "PLaca" },
   { id: 9, name: "Estado" },
-  { id: 10, name: "Fecha Creacion" },
-  { id: 11, name: "Fecha modificacion" },
 ];
 
 function Vehiculos() {
@@ -234,12 +232,10 @@ function Vehiculos() {
       <td>{vehiculo.v_motor}</td>
       <td>{vehiculo.v_place}</td>
       <td>{vehiculo.v_estado === 2 ? "Rentado" : "Disponible"}</td>
-      <td>{formatDate(vehiculo.v_creado)}</td>
-      <td>{formatDate(vehiculo.v_modificado)}</td>
       <td>
         <button
           disabled={vehiculo.v_estado === 2}
-          className="btn btn-outline-primary mb-1 text-uppercase"
+          className="btn btn-outline-primary me-2 text-uppercase"
           onClick={() => setOnUpdateMode(vehiculo)}
         >
           editar

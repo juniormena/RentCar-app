@@ -1,7 +1,9 @@
 import homeCSS from "./Home.module.css";
 import jmRenCar from "../../assets/img/jmRentCar.png";
+import { getCurrentUser } from "../../services/authServices";
 
 function Home() {
+  console.log("current user", getCurrentUser());
   return (
     <section className={homeCSS.hero}>
       <div className="container">

@@ -7,6 +7,7 @@ const clientesRoutes = require("./clientesRoutes");
 const empleadosRoutes = require("./empleadosRoutes");
 const inspeccionesRoutes = require("./inspeccionRoutes");
 const rentaDevolucionRoutes = require("./rentaDevolucionRoutes");
+const authRoutes = require("./authRoutes");
 
 module.exports = {
   marcasRoutes,
@@ -18,4 +19,5 @@ module.exports = {
   empleadosRoutes,
   inspeccionesRoutes,
   rentaDevolucionRoutes,
+  authRoutes,
 };

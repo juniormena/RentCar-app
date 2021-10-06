@@ -3,6 +3,7 @@ const tableName = "empleados";
 const empleadosQueries = {
   selectAll: `SELECT * FROM ${tableName} WHERE emp_estado = 1 ORDER BY emp_creado desc;`,
   selectOne: `SELECT * FROM ${tableName} WHERE emp_id = $1 AND emp_estado = 1;`,
+  selectByCedula: `SELECT * FROM ${tableName} WHERE emp_cedula = $1 AND emp_estado = 1;`,
   insert: `INSERT INTO ${tableName}(emp_nombre, emp_cedula, emp_tanda_labor, emp_porciento_comision, emp_fecha_ingreso)
 	VALUES ($1, $2, $3, $4, $5)`,
   disable: `UPDATE ${tableName} SET emp_estado = 0 WHERE emp_id = $1;`,

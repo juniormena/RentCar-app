@@ -19,6 +19,15 @@ const getEmpleadoById = async (emp_id) => {
   }
 };
 
+const getEmpleadoByCedula = async (emp_cedula) => {
+  try {
+    const empleados = await empleadosRepository.getEmpleadoByCedula(emp_cedula);
+    return empleados;
+  } catch (error) {
+    throw error;
+  }
+};
+
 const createEmpleado = async (empleado) => {
   try {
     const newEmpleado = await empleadosRepository.insertEmpleado(empleado);
@@ -51,6 +60,7 @@ const disableEmpleado = async (empleado) => {
 module.exports = {
   getAllEmpleados,
   getEmpleadoById,
+  getEmpleadoByCedula,
   createEmpleado,
   updateEmpleado,
   disableEmpleado,

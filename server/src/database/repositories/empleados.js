@@ -21,6 +21,18 @@ const getEmpleadoById = async (emp_id) => {
   }
 };
 
+const getEmpleadoByCedula = async (emp_cedula) => {
+  try {
+    const empleados = await execQuery(empleadosQueries.selectByCedula, [
+      emp_cedula,
+    ]);
+    return empleados;
+  } catch (error) {
+    console.error("Error empleados Repository", error);
+    throw error;
+  }
+};
+
 const insertEmpleado = async ({
   emp_nombre,
   emp_cedula,
@@ -86,6 +98,7 @@ const disableEmpleado = async ({ emp_id }) => {
 module.exports = {
   getEmpleados,
   getEmpleadoById,
+  getEmpleadoByCedula,
   insertEmpleado,
   updateEmpleado,
   disableEmpleado,

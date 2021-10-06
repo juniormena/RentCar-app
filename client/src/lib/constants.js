@@ -2,3 +2,9 @@ export const TIPO_PERSONA = {
   FISICA: "FISICA",
   JURIDICA: "JURIDICA",
 };
+
+export const TANDA_LABOR = {
+  MATUTINA: "MATUTINA",
+  VESPERTINA: "VESPERTINA",
+  NOCTURNA: "NOCTURNA",
+};

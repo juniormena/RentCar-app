@@ -22,6 +22,8 @@ const clientesHeaders = [
   { id: 3, name: "No. Tarjeta CR" },
   { id: 4, name: "Limite de credito" },
   { id: 5, name: "Tipo persona" },
+  { id: 6, name: "Fecha Creacion" },
+  { id: 7, name: "Fecha modificacion" },
 ];
 
 const initialState = {
@@ -32,7 +34,7 @@ const initialState = {
   c_tipo_persona: TIPO_PERSONA.FISICA,
 };
 
-function Vehiculos() {
+function Clientes() {
   const [clientes, setClientes] = useState([]);
   const [updateMode, setUpdateMode] = useState(false);
   const [show, handleShow, handleClose] = useModal();
@@ -103,7 +105,7 @@ function Vehiculos() {
               placeholder="Cedula sin guiones"
               value={cliente.c_cedula}
               maxLength="11"
-              pattern="[0-9]+"
+              pattern={`[0-9]+`}
               onChange={(e) => handleChangeInput(e, cliente, setCliente)}
             />
           </Col>
@@ -208,4 +210,4 @@ function Vehiculos() {
   );
 }
 
-export default Vehiculos;
+export default Clientes;

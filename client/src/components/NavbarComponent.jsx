@@ -11,6 +11,9 @@ function NavbarComponent() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
+            <Nav.Link href="/vehiculos">Vehiculos</Nav.Link>
+            <Nav.Link href="/clientes">Clientes</Nav.Link>
+            <Nav.Link href="/empleados">Empleados</Nav.Link>
             <NavDropdown title="Marcas y Modelos">
               <NavDropdown.Item href="/marcas">Marcas</NavDropdown.Item>
               <NavDropdown.Item href="/modelos">Modelos</NavDropdown.Item>
@@ -23,8 +26,6 @@ function NavbarComponent() {
                 Tipo Vehiculo
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="/vehiculos">Vehiculos</Nav.Link>
-            <Nav.Link href="/clientes">Clientes</Nav.Link>
           </Nav>
         </Navbar.Collapse>
         <Navbar.Collapse className="justify-content-end">

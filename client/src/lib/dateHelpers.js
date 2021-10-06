@@ -3,6 +3,6 @@ import "moment/locale/es-do";
 
 moment.locale("es-do");
 
-export const formatDate = (date) => {
-  return moment(date).format("YYYY-MM-DD h:mm a");
+export const formatDate = (date, showHour = true) => {
+  return moment(date).format(`YYYY-MM-DD ${showHour ? "h:mm a" : ""}`);
 };

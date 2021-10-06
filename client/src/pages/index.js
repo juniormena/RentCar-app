@@ -6,3 +6,4 @@ export { default as TipoVehiculo } from "./TipoVehiculo/TipoVehiculo";
 export { default as Modelos } from "./Modelos/Modelos";
 export { default as Vehiculos } from "./Vehiculos/Vehiculos";
 export { default as Clientes } from "./Clientes/Clientes";
+export { default as Empleados } from "./Empleados/Empleados";

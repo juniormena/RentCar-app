@@ -14,6 +14,7 @@ function NavbarComponent() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/vehiculos">Vehiculos</Nav.Link>
+            <Nav.Link href="/rentaDevolucion">Rent car</Nav.Link>
             <Nav.Link href="/clientes">Clientes</Nav.Link>
             <Nav.Link href="/empleados">Empleados</Nav.Link>
             <NavDropdown title="Marcas y Modelos">

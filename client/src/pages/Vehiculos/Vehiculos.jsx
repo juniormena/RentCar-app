@@ -253,6 +253,12 @@ function Vehiculos() {
         >
           eliminar
         </button>
+        <button
+          disabled={vehiculo.v_estado === 2}
+          className="btn btn-outline-success mt-2 text-uppercase"
+        >
+          Rentar
+        </button>
       </td>
     </tr>
   );

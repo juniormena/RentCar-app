@@ -6,12 +6,14 @@ import {
   Login,
   Marcas,
   Modelos,
+  RentaDevolucion,
   TipoCombustible,
   TipoVehiculo,
   Vehiculos,
 } from "./pages";
 import { NavbarComponent, ProtectedRoute } from "./components";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap";
 import { Fragment } from "react";
 
 function App() {
@@ -38,6 +40,11 @@ function App() {
             <ProtectedRoute exact path="/vehiculos" component={Vehiculos} />
             <ProtectedRoute exact path="/clientes" component={Clientes} />
             <ProtectedRoute exact path="/empleados" component={Empleados} />
+            <ProtectedRoute
+              exact
+              path="/rentaDevolucion"
+              component={RentaDevolucion}
+            />
           </div>
         </Fragment>
       </Switch>

@@ -13,7 +13,7 @@ import {
 import { formatDate } from "../../lib/dateHelpers";
 import useModal from "../../hooks/useModal";
 import { confirmationAlert, handleChangeInput } from "../../lib/generalHelpers";
-import { TANDA_LABOR } from "../../lib/constants";
+import { TANDA_LABOR, TODAY } from "../../lib/constants";
 import useListOfTandaLabor from "../../hooks/useListOfTandaLabor";
 
 const empleadosHeaders = [
@@ -29,7 +29,7 @@ const initialState = {
   emp_cedula: "",
   emp_tanda_labor: TANDA_LABOR.MATUTINA,
   emp_porciento_comision: 0,
-  emp_fecha_ingreso: new Date().toISOString().split("T")[0],
+  emp_fecha_ingreso: TODAY,
 };
 
 function Empleados() {

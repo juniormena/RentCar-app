@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { getVehiculos } from "../services/vehiculosService";
 
-function useListOfVehiculos() {
+function useListOfVehiculos(updateMode) {
   const [vehiculos, setVehiculos] = useState([]);
 
   useEffect(() => {
@@ -12,14 +12,16 @@ function useListOfVehiculos() {
     (vehiculo) => vehiculo.v_estado !== 2
   );
 
-  const vehiculosOptions = vehiculosFilteredByStatus.map((vehiculo) => (
+  const vehiculosOptions = (
+    updateMode ? vehiculos : vehiculosFilteredByStatus
+  ).map((vehiculo) => (
     <option key={vehiculo.v_id} value={vehiculo.v_id}>
       {vehiculo.v_descripcion}
     </option>
   ));
 
   const optionsVehiculos =
-    vehiculosFilteredByStatus.length === 0 ? (
+    (updateMode ? vehiculos : vehiculosFilteredByStatus).length === 0 ? (
       <option>no hay vehiculos</option>
     ) : (
       <>

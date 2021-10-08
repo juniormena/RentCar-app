@@ -41,6 +41,7 @@ const createRentaDevolucion = async (rentaDevolucion) => {
 
 const updateRentaDevolucion = async (rentaDevolucion) => {
   try {
+    console.log(rentaDevolucion);
     const updatedrentaDevolucion =
       await rentaDevolucionRepository.updateRentaDevolucion(rentaDevolucion);
     let vehiculo = {

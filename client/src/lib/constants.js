@@ -21,4 +21,14 @@ export const COMBUSTIBLE_OPTIONS = {
   LLENO: "LLENO",
 };
 
+export const VEHICULOS_STATUS = {
+  DISPONIBLE: 1,
+  RENTADO: 2,
+};
+
+export const RENTA_STATUS = {
+  EN_PROCESO: 1,
+  FINALIZADO: 2,
+};
+
 export const TODAY = new Date().toISOString().split("T")[0];

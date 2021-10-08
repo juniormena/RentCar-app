@@ -14,7 +14,7 @@ export const getInspecciones = async () => {
   }
 };
 
-export const createInspeccion = async (e, inspeccion) => {
+export const createInspeccion = async (e, inspeccion, cb) => {
   try {
     e.preventDefault();
     let options = {
@@ -27,7 +27,7 @@ export const createInspeccion = async (e, inspeccion) => {
     if (res.ok) {
       const jsonResponse = await res.json();
       if (jsonResponse.success) {
-        normalAlert(ALERT_ICONS.SUCCESS, serviceTitle, jsonResponse.message);
+        cb();
       } else {
         normalAlert(ALERT_ICONS.ERROR, serviceTitle, jsonResponse.message);
       }

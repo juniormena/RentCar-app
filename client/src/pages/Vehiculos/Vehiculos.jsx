@@ -10,13 +10,13 @@ import {
   getVehiculos,
   updateVehiculo,
 } from "../../services/vehiculosService";
-import { formatDate } from "../../lib/dateHelpers";
 import useModal from "../../hooks/useModal";
 import { confirmationAlert, handleChangeInput } from "../../lib/generalHelpers";
 import useListOfMarcas from "../../hooks/useListOfMarcas";
 import useListOfModelos from "../../hooks/useList OfModelos";
 import useListOfTipoCombustible from "../../hooks/useListOfTipoCombustible";
 import useListOfTipoVehiculo from "../../hooks/useListOfTipoVehiculos";
+import { VEHICULOS_STATUS } from "../../lib/constants";
 
 const vehiculosHeaders = [
   { id: 1, name: "Descripcion" },
@@ -231,7 +231,11 @@ function Vehiculos() {
       <td>{vehiculo.v_chasis}</td>
       <td>{vehiculo.v_motor}</td>
       <td>{vehiculo.v_place}</td>
-      <td>{vehiculo.v_estado === 2 ? "Rentado" : "Disponible"}</td>
+      <td>
+        {vehiculo.v_estado === VEHICULOS_STATUS.RENTADO
+          ? "Rentado"
+          : "Disponible"}
+      </td>
       <td>
         <button
           disabled={vehiculo.v_estado === 2}
@@ -252,12 +256,6 @@ function Vehiculos() {
           }
         >
           eliminar
-        </button>
-        <button
-          disabled={vehiculo.v_estado === 2}
-          className="btn btn-outline-success mt-2 text-uppercase"
-        >
-          Rentar
         </button>
       </td>
     </tr>

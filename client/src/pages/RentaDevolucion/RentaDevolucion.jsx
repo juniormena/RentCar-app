@@ -338,7 +338,7 @@ function RentaDevoluciones() {
 
         <Accordion
           id="rentaDevolucion"
-          title="Renta"
+          title={`${updateMode ? "Renta" : "Devolucion"}`}
           disabled={!rentaDevolucion.inspeccion_complete && !updateMode}
         >
           <Container>

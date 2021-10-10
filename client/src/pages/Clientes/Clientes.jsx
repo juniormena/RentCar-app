@@ -105,7 +105,7 @@ function Clientes() {
               placeholder="Cedula sin guiones"
               value={cliente.c_cedula}
               maxLength="11"
-              pattern={`[0-9]+`}
+              pattern={`[0-9]{11}+`}
               onChange={(e) => handleChangeInput(e, cliente, setCliente)}
             />
           </Col>

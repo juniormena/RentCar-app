@@ -36,7 +36,7 @@ export const login = async (e, empleado, url) => {
 
 export function logOut() {
   window.localStorage.clear();
-  window.location.reload();
+  window.location.href = "/";
 }
 
 export function getCurrentUser() {

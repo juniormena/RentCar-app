@@ -3,7 +3,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Accordion from "../../components/Accordion";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import TableComponent from "../../components/TableComponent";
 import {
   createRentaDevolucion,
@@ -58,8 +58,14 @@ function RentaDevoluciones() {
   const [updateMode, setUpdateMode] = useState(false);
   const [show, handleShow, handleClose] = useModal();
   const [rentaDevolucion, setRentaDevolucion] = useState(initialState);
+  const [filtros, setFiltros] = useState({
+    cliente: 0,
+    vehiculo: 0,
+    fechaRenta: "",
+  });
   const listOfClientes = useListOfClientes();
   const listOfVehiculos = useListOfVehiculos(updateMode);
+  const listOfVehiculos2 = useListOfVehiculos(true);
   const listOfEmpleados = useListOfEmpleados();
   const listOfYesNo = useListOfYesNoOptions();
   const listOfCantCombustible = useListOfCantCombustible();
@@ -67,7 +73,34 @@ function RentaDevoluciones() {
 
   useEffect(() => {
     getRentaDevoluciones().then(({ data }) => setRentaDevoluciones(data));
-  }, []);
+  }, [filtros.cliente]);
+
+  const rentasFiltered = useMemo(() => {
+    console.log(new Date(formatDate("2021-10-08T04:00:00.000Z", false)));
+    console.log(new Date(filtros.fechaRenta));
+    let rentaDevolucionCopy = [...rentaDevoluciones];
+    if (
+      parseInt(filtros.cliente) !== 0 ||
+      parseInt(filtros.vehiculo) !== 0 ||
+      filtros.fechaRenta !== ""
+    ) {
+      rentaDevolucionCopy = rentaDevoluciones.filter(
+        (renta) =>
+          renta.rdv_id_cliente === parseInt(filtros.cliente) ||
+          renta.rdv_id_vehiculo === parseInt(filtros.vehiculo) ||
+          new Date(formatDate(renta.rdv_fecha_renta, false))
+            .toISOString()
+            .split("T")[0] ===
+            new Date(filtros.fechaRenta).toISOString().split("T")[0]
+      );
+    }
+    return rentaDevolucionCopy;
+  }, [
+    filtros.cliente,
+    filtros.vehiculo,
+    filtros.fechaRenta,
+    rentaDevoluciones,
+  ]);
 
   function setOnUpdateMode(renta) {
     handleShow();
@@ -487,10 +520,57 @@ function RentaDevoluciones() {
 
   return (
     <div className="mt-3">
+      <div className="accordion mb-3" id="accordionExample">
+        <Accordion id="filtros" title="Filtros" open={false}>
+          <Container>
+            <Row>
+              <Col md={6}>
+                <label>Cliente</label>
+                <select
+                  className="form-select"
+                  name="cliente"
+                  required
+                  value={filtros.cliente}
+                  onChange={(e) => handleChangeInput(e, filtros, setFiltros)}
+                >
+                  {listOfClientes}
+                </select>
+              </Col>
+              <Col md={6}>
+                <label>Vehiculo</label>
+                <select
+                  className="form-select"
+                  name="vehiculo"
+                  required
+                  value={filtros.vehiculo}
+                  onChange={(e) => handleChangeInput(e, filtros, setFiltros)}
+                >
+                  {listOfVehiculos2}
+                </select>
+              </Col>
+            </Row>
+            <Row>
+              <Col md={6}>
+                <label>Fecha renta</label>
+                <input
+                  required
+                  name="fechaRenta"
+                  type="date"
+                  className="form-control"
+                  id="fechaRenta"
+                  placeholder="Fecha de renta"
+                  value={filtros.fechaRenta}
+                  onChange={(e) => handleChangeInput(e, filtros, setFiltros)}
+                />
+              </Col>
+            </Row>
+          </Container>
+        </Accordion>
+      </div>
       <TableComponent
         headers={rentaDevolucionHeaders}
         title={pageTitle}
-        children={rentaDevoluciones?.map((rentaDevolucion) =>
+        children={rentasFiltered?.map((rentaDevolucion) =>
           rentaDevolucionRow(rentaDevolucion)
         )}
         modalChildren={rentaDevolucionForm()}
@@ -498,6 +578,8 @@ function RentaDevoluciones() {
         handleClose={closeModal}
         handleShow={handleShow}
         modalSize="lg"
+        showExcelButton={true}
+        dataToBeDownload={rentaDevoluciones}
       />
     </div>
   );

@@ -2,6 +2,8 @@ import Table from "react-bootstrap/Table";
 import Card from "react-bootstrap/Card";
 import { Fragment } from "react";
 import ModalComponent from "./ModalComponent";
+import { descargarExcel } from "../lib/exportsHelpers";
+import { TODAY } from "../lib/constants";
 
 function TableComponent({
   headers,
@@ -11,6 +13,8 @@ function TableComponent({
   show,
   handleClose,
   handleShow,
+  showExcelButton = false,
+  dataToBeDownload,
   modalSize = "sm",
 }) {
   return (
@@ -28,6 +32,15 @@ function TableComponent({
       <Card>
         <Card.Header className="text-uppercase fw-bold d-flex justify-content-between">
           {title}
+          {showExcelButton && (
+            <button
+              className="btn btn-outline-success"
+              onClick={() => descargarExcel(`${title}`, dataToBeDownload)}
+            >
+              Descargar Excel
+            </button>
+          )}
+
           <button className="btn btn-outline-primary ms-2" onClick={handleShow}>
             Crear
           </button>

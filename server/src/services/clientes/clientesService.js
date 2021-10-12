@@ -1,4 +1,5 @@
 const { repository } = require("../../database");
+const { validateDominicanID } = require("../../utils/helpers");
 const { clientes: clientesRepository } = repository;
 
 const getAllClientes = async () => {
@@ -21,6 +22,7 @@ const getClienteById = async (c_id) => {
 
 const createCliente = async (cliente) => {
   try {
+    validateDominicanID(cliente.c_cedula);
     const newCliente = await clientesRepository.insertCliente(cliente);
     return newCliente;
   } catch (error) {
@@ -30,6 +32,7 @@ const createCliente = async (cliente) => {
 
 const updateCliente = async (cliente) => {
   try {
+    validateDominicanID(cliente.c_cedula);
     const updatedCliente = await clientesRepository.updateCliente(cliente);
     return updatedCliente;
   } catch (error) {

@@ -1,4 +1,5 @@
 const { repository } = require("../../database");
+const { validateDominicanID } = require("../../utils/helpers");
 const { empleados: empleadosRepository } = repository;
 
 const getAllEmpleados = async () => {
@@ -30,6 +31,7 @@ const getEmpleadoByCedula = async (emp_cedula) => {
 
 const createEmpleado = async (empleado) => {
   try {
+    validateDominicanID(empleado.emp_cedula);
     const newEmpleado = await empleadosRepository.insertEmpleado(empleado);
     return newEmpleado;
   } catch (error) {
@@ -39,6 +41,7 @@ const createEmpleado = async (empleado) => {
 
 const updateEmpleado = async (empleado) => {
   try {
+    validateDominicanID(empleado.emp_cedula);
     const updatedEmpleado = await empleadosRepository.updateEmpleado(empleado);
     return updatedEmpleado;
   } catch (error) {

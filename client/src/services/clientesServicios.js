@@ -32,7 +32,8 @@ export const createCliente = async (e, cliente) => {
         normalAlert(ALERT_ICONS.ERROR, serviceTitle, jsonResponse.message);
       }
     } else {
-      normalAlert(ALERT_ICONS.ERROR, serviceTitle, "Algo salio mal!");
+      const json = await res.json();
+      normalAlert(ALERT_ICONS.ERROR, serviceTitle, json.message);
     }
   } catch (err) {
     normalAlert(ALERT_ICONS.ERROR, serviceTitle, err.message);
@@ -57,7 +58,8 @@ export const updateCliente = async (e, cliente) => {
         normalAlert(ALERT_ICONS.ERROR, serviceTitle, jsonResponse.message);
       }
     } else {
-      normalAlert(ALERT_ICONS.ERROR, serviceTitle, "Algo salio mal!");
+      const json = await res.json();
+      normalAlert(ALERT_ICONS.ERROR, serviceTitle, json.message);
     }
   } catch (err) {
     normalAlert(ALERT_ICONS.ERROR, serviceTitle, err.message);

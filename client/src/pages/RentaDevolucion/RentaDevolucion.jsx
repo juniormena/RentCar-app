@@ -76,8 +76,6 @@ function RentaDevoluciones() {
   }, [filtros.cliente]);
 
   const rentasFiltered = useMemo(() => {
-    console.log(new Date(formatDate("2021-10-08T04:00:00.000Z", false)));
-    console.log(new Date(filtros.fechaRenta));
     let rentaDevolucionCopy = [...rentaDevoluciones];
     if (
       parseInt(filtros.cliente) !== 0 ||
@@ -90,8 +88,7 @@ function RentaDevoluciones() {
           renta.rdv_id_vehiculo === parseInt(filtros.vehiculo) ||
           new Date(formatDate(renta.rdv_fecha_renta, false))
             .toISOString()
-            .split("T")[0] ===
-            new Date(filtros.fechaRenta).toISOString().split("T")[0]
+            .split("T")[0] === filtros.fechaRenta
       );
     }
     return rentaDevolucionCopy;
@@ -305,20 +302,6 @@ function RentaDevoluciones() {
               </Row>
               <Row className="mb-2">
                 <Col>
-                  <label>Tiene ralladuras?</label>
-                  <select
-                    className="form-select mb-3"
-                    name="ins_tiene_ralladuras"
-                    required
-                    value={rentaDevolucion.ins_tiene_ralladuras}
-                    onChange={(e) =>
-                      handleChangeInput(e, rentaDevolucion, setRentaDevolucion)
-                    }
-                  >
-                    {listOfYesNo}
-                  </select>
-                </Col>
-                <Col>
                   <label>Tiene rotura de cristales?</label>
                   <select
                     className="form-select mb-3"
@@ -371,7 +354,7 @@ function RentaDevoluciones() {
 
         <Accordion
           id="rentaDevolucion"
-          title={`${updateMode ? "Renta" : "Devolucion"}`}
+          title={`${updateMode ? "Devolucion" : "Renta"}`}
           disabled={!rentaDevolucion.inspeccion_complete && !updateMode}
         >
           <Container>
@@ -381,6 +364,7 @@ function RentaDevoluciones() {
                 <input
                   disabled={updateMode}
                   required
+                  min="0"
                   name="rdv_monto_dia"
                   type="number"
                   className="form-control"
@@ -397,6 +381,7 @@ function RentaDevoluciones() {
                 <input
                   disabled={updateMode}
                   required
+                  min="1"
                   name="rdv_cant_dias"
                   type="number"
                   className="form-control"

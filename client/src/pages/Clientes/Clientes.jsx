@@ -131,6 +131,7 @@ function Clientes() {
               required
               name="c_limite_credito"
               type="number"
+              min="0"
               className="form-control"
               id="limiteCredito"
               placeholder="Limite de credito"

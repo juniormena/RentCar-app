@@ -1,15 +1,15 @@
 # Instructions for running the app
 
 # Server
-cd server && npm install
+>  **cd server && npm install
 then
-npm start to start the server app
+npm start**
 
 # Client
 
-cd client && npm install
+>  **cd client && npm install
 then
-npm start to start the client app
+npm start** 
 
 # Database config
 

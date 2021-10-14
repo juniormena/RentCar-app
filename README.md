@@ -1,19 +1,20 @@
 # Instructions for running the app
 
-# Server
->  **cd server && npm install
-then
-npm start**
+## Server
 
-# Client
+> **cd server && npm install
+> then
+> npm start**
 
->  **cd client && npm install
-then
-npm start** 
+## Client
 
-# Database config
+> **cd client && npm install
+> then
+> npm start**
 
-En la carpeta server/src, crear un archivo .env con  tus datos:
+## Database config
+
+En la carpeta server/src, crear un archivo .env con tus datos:
 
 - DB_HOST=localhost
 - DB_USER=your db user
